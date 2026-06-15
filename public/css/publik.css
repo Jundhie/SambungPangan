@@ -1,0 +1,822 @@
+/* ============================================================
+   publik.css — SambungPangan Public Layout
+   ============================================================ */
+
+:root {
+    --sp-green:        #2e8b57;
+    --sp-green-dark:   #236b43;
+    --sp-white:        #ffffff;
+    --sp-footer-bg:    #f5f5f5;
+    --sp-footer-text:  #6c757d;
+}
+
+/* ---------- Global ---------- */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px; /* beri ruang agar konten tidak tertutup navbar fixed */
+}
+
+main {
+    flex: 1;
+}
+
+/* ---------- Navbar Wrapper (fixed + mengambang) ---------- */
+.navbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    padding: 10px 16px; /* jarak atas dan kiri-kanan = efek mengambang */
+}
+
+/* ---------- Navbar ---------- */
+.navbar-publik {
+    background-color: var(--sp-green);
+    border-radius: 50px;
+    padding: 0.3rem 1.25rem;       /* padding atas-bawah dikecilkan */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+    align-items: center;
+}
+
+/* Logo */
+.navbar-logo {
+    width: 48px;         /* ganti sesuai selera */
+    height: 48px;
+    object-fit: contain;
+    border-radius: 50%;
+    flex-shrink: 0;      /* logo tidak menyusut */
+}
+
+/* Brand teks */
+.brand-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--sp-white);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+/* Nav links */
+.navbar-publik .nav-link {
+    color: var(--sp-white);
+    font-weight: 600;
+    font-size: 0.93rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    transition: background 0.18s ease;
+    white-space: nowrap;
+}
+
+.navbar-publik .nav-link:hover,
+.navbar-publik .nav-link.active {
+    background-color: var(--sp-green-dark);
+    color: var(--sp-white);
+}
+
+/* ---------- Auth Buttons ---------- */
+.btn-login,
+.btn-register {
+    background-color: transparent;
+    color: var(--sp-white);
+    border: 2px solid var(--sp-white);
+    border-radius: 50px;
+    padding: 0.28rem 1.1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.18s ease, color 0.18s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn-login:hover,
+.btn-register:hover {
+    background-color: var(--sp-white);
+    color: var(--sp-green);
+}
+
+/* Toggler */
+.navbar-publik .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* ---------- Footer ---------- */
+.footer-publik {
+    background-color: var(--sp-footer-bg);
+    border-top: 1px solid #e0e0e0;
+    color: var(--sp-footer-text);
+    font-size: 0.85rem;
+    margin-top: auto;
+}
+
+/* ---------- Responsif mobile ---------- */
+@media (max-width: 991.98px) {
+    .navbar-wrapper {
+        padding: 8px 10px;
+    }
+
+    .navbar-publik {
+        border-radius: 20px;
+    }
+
+    .navbar-publik .nav-link {
+        border-radius: 10px;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .navbar-publik .navbar-nav {
+        padding: 0.5rem 0;
+        gap: 4px !important;
+    }
+}
+
+
+/* ============================================================
+   BERANDA — Hero, Cara Kerja, Statistik
+   ============================================================ */
+
+/* ---------- Hero Section ---------- */
+.hero-section {
+    background-color: #fff;
+    padding: 60px 0 40px;
+    overflow: hidden;
+}
+
+.min-vh-hero {
+    min-height: 75vh;
+}
+
+/* Badge */
+.hero-badge {
+    background-color: #e6f4ed;
+    color: var(--sp-green);
+    border: 1.5px solid #b3ddc7;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    letter-spacing: 0.01em;
+}
+
+/* Headline */
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #111;
+    margin-top: 0.75rem;
+}
+
+.hero-accent {
+    color: var(--sp-green);
+}
+
+/* Deskripsi */
+.hero-desc {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-top: 1rem;
+}
+
+/* CTA */
+.btn-hero-primary {
+    background-color: var(--sp-green);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 0.65rem 1.6rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.18s ease, transform 0.15s ease;
+    text-decoration: none;
+}
+.btn-hero-primary:hover {
+    background-color: var(--sp-green-dark);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.btn-hero-outline {
+    background-color: transparent;
+    color: #333;
+    border: 1.5px solid #ccc;
+    border-radius: 50px;
+    padding: 0.65rem 1.6rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: border-color 0.18s ease, color 0.18s ease;
+    text-decoration: none;
+}
+.btn-hero-outline:hover {
+    border-color: var(--sp-green);
+    color: var(--sp-green);
+}
+
+/* ---------- Hero Image ---------- */
+.hero-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ---------- Section title ---------- */
+.section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111;
+}
+
+/* ---------- Cara Kerja Section ---------- */
+.cara-kerja-section {
+    background-color: #f9f9f9;
+}
+
+/* Tab group */
+.ck-tab-group {
+    background: #efefef;
+    border-radius: 50px;
+    padding: 4px;
+    display: inline-flex;
+    gap: 4px;
+}
+
+.ck-tab {
+    border: none;
+    background: transparent;
+    border-radius: 50px;
+    padding: 0.45rem 1.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+
+.ck-tab.active {
+    background: var(--sp-green);
+    color: #fff;
+}
+
+/* Steps */
+.ck-steps {
+    padding: 0 8px;
+}
+
+.ck-step-item {
+    text-align: center;
+    max-width: 130px;
+    padding: 0 8px;
+}
+
+.ck-step-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #d4ede1;       /* hijau muda */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 1.6rem;
+    color: var(--sp-green);    /* icon hijau tua */
+}
+
+.ck-step-num {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #222;
+    margin-bottom: 4px;
+}
+
+.ck-step-desc {
+    font-size: 0.78rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.ck-arrow {
+    font-size: 1.4rem;
+    color: #aaa;
+    padding: 0 4px;
+    margin-top: 22px;
+    align-self: flex-start;
+}
+
+/* ---------- Statistik ---------- */
+.stats-section {
+    background-color: #fff;
+}
+
+.stat-card {
+    background: #e8e8e8;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    height: 100%;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #111;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+
+.stat-label {
+    font-size: 0.88rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991.98px) {
+    .hero-section {
+        padding: 40px 0 30px;
+        text-align: center;
+    }
+    .hero-desc { max-width: 100%; margin-left: auto; margin-right: auto; }
+    .hero-cta  { justify-content: center; }
+    .hero-illustration { width: 300px; height: 280px; margin-top: 2rem; }
+    .min-vh-hero { min-height: auto; }
+
+    .ck-tab-group { flex-direction: column; border-radius: 16px; }
+    .ck-tab { border-radius: 12px; }
+
+    .ck-steps .row { flex-direction: column; align-items: center; }
+    .ck-arrow { transform: rotate(90deg); margin: 4px 0; }
+}
+
+
+/* ============================================================
+   TENTANG KAMI
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+.tentang-hero {
+    background-color: #fff;
+    padding-top: 40px;
+}
+
+.tentang-hero-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--sp-green);
+    line-height: 1.15;
+}
+
+.tentang-hero-sub {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 0.4rem;
+    font-weight: 500;
+}
+
+.tentang-hero-img {
+    max-height: 320px;
+    object-fit: contain;
+}
+
+/* ---------- Tagline + Deskripsi ---------- */
+.tentang-desc-section {
+    background-color: #fff;
+}
+
+.tentang-tagline {
+    font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+    font-weight: 800;
+    color: #111;
+    line-height: 1.25;
+}
+
+.tentang-tagline-accent {
+    color: var(--sp-green);
+}
+
+.tentang-body {
+    font-size: 0.93rem;
+    color: #333;
+    line-height: 1.75;
+    max-width: 720px;
+    font-weight: 600;
+}
+
+/* ---------- Visi Misi ---------- */
+.visi-misi-section {
+    background-color: #fff;
+}
+
+.vm-card {
+    border: 1.5px solid #d0d0d0;
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    height: 100%;
+    background: #fff;
+    transition: box-shadow 0.2s ease;
+}
+
+.vm-card:hover {
+    box-shadow: 0 4px 18px rgba(46, 139, 87, 0.1);
+}
+
+.vm-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.75rem;
+}
+
+.vm-text {
+    font-size: 0.88rem;
+    color: #444;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ---------- Nilai Kami ---------- */
+.nilai-section {
+    background-color: #fff;
+}
+
+.nilai-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111;
+}
+
+.nilai-card {
+    border: 1.5px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 1.4rem 1.6rem;
+    height: 100%;
+    background: #fff;
+    transition: box-shadow 0.2s ease;
+}
+
+.nilai-card:hover {
+    box-shadow: 0 4px 18px rgba(46, 139, 87, 0.1);
+}
+
+.nilai-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #d4ede1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--sp-green);
+    flex-shrink: 0;
+}
+
+.nilai-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.nilai-text {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ---------- CTA Banner ---------- */
+.tentang-cta-section {
+    background-color: #fff;
+}
+
+.tentang-cta-banner {
+    background-color: var(--sp-green);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+}
+
+.tentang-cta-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.tentang-cta-desc {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.65;
+    margin: 0;
+}
+
+.btn-cta-gabung {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    padding: 0.55rem 1.8rem;
+    font-weight: 700;
+    font-size: 0.93rem;
+    text-decoration: none;
+    transition: background 0.18s ease, color 0.18s ease;
+    display: inline-block;
+}
+
+.btn-cta-gabung:hover {
+    background-color: #fff;
+    color: var(--sp-green);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767.98px) {
+    .tentang-hero-img {
+        max-height: 220px;
+        margin-top: 1.5rem;
+    }
+
+    .tentang-cta-banner {
+        padding: 2rem 1.25rem;
+    }
+
+    .tentang-cta-desc br {
+        display: none;
+    }
+}
+
+
+/* ============================================================
+   KONTAK
+   ============================================================ */
+
+/* ---------- Header ---------- */
+.kontak-section {
+    background-color: #fff;
+    min-height: 80vh;
+}
+
+.kontak-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--sp-green);
+}
+
+.kontak-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+    margin-top: 0.25rem;
+}
+
+/* ---------- Card Utama ---------- */
+.kontak-card {
+    border: 1.5px solid #d0d0d0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.kontak-card .row {
+    flex-wrap: nowrap;   /* paksa kiri-kanan tidak turun ke bawah */
+}
+
+/* ---------- Kolom Kiri: Info ---------- */
+.kontak-info-col {
+    padding: 2.25rem 2rem;
+    border-right: 1.5px solid #e0e0e0;
+    flex-shrink: 0;
+}
+
+.kontak-info-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--sp-green);
+    margin-bottom: 1.75rem;
+}
+
+.kontak-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.kontak-info-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--sp-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.kontak-info-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #111;
+    margin-bottom: 2px;
+}
+
+.kontak-info-text {
+    font-size: 0.85rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+
+/* ---------- Kolom Kanan: Form ---------- */
+.kontak-form-col {
+    padding: 2.25rem 2rem;
+}
+
+.kontak-form-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--sp-green);
+    margin-bottom: 1.5rem;
+}
+
+.kontak-form-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #111;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+.kontak-input {
+    border: 1.5px solid #d0d0d0;
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
+    color: #333;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.kontak-input:focus {
+    border-color: var(--sp-green);
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.12);
+    outline: none;
+}
+
+.kontak-input::placeholder {
+    color: #bbb;
+}
+
+.btn-kirim-pesan {
+    background-color: var(--sp-green-dark);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem;
+    font-size: 0.97rem;
+    font-weight: 700;
+    transition: background 0.18s ease;
+    width: 100%;
+}
+
+.btn-kirim-pesan:hover {
+    background-color: #1a5c38;
+    color: #fff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991.98px) {
+    .kontak-info-col {
+        border-right: none;
+        border-bottom: 1.5px solid #e0e0e0;
+        padding: 1.75rem 1.5rem;
+    }
+
+    .kontak-form-col {
+        padding: 1.75rem 1.5rem;
+    }
+}
+
+
+/* ============================================================
+   LOGIN
+   ============================================================ */
+
+.login-section {
+    background: #fff;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+}
+
+.min-vh-login {
+    min-height: calc(100vh - 80px);
+}
+
+/* Kolom form */
+.login-form-col {
+    padding: 3rem 2rem 3rem 1rem;
+}
+
+/* Judul */
+.login-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--sp-green);
+    line-height: 1.1;
+}
+
+.login-subtitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #222;
+    margin-top: 0.25rem;
+}
+
+/* Label */
+.login-label {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #111;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Input */
+.login-input {
+    border: 1.5px solid #c8e6d8;
+    border-radius: 10px;
+    padding: 0.65rem 1rem;
+    font-size: 0.92rem;
+    color: #333;
+    background: #fff;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.login-input:focus {
+    border-color: var(--sp-green);
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.12);
+    outline: none;
+}
+
+.login-input::placeholder {
+    color: #bbb;
+}
+
+/* Lupa password */
+.login-forgot {
+    font-size: 0.88rem;
+    color: var(--sp-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-forgot:hover {
+    text-decoration: underline;
+    color: var(--sp-green-dark);
+}
+
+/* Tombol Masuk */
+.btn-login-submit {
+    background-color: var(--sp-green-dark);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background 0.18s ease;
+}
+
+.btn-login-submit:hover {
+    background-color: #1a5c38;
+    color: #fff;
+}
+
+/* Logo kanan */
+.login-logo-col {
+    padding: 2rem;
+}
+
+.login-logo {
+    max-width: 600px;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .login-form-col {
+        padding: 2rem 1rem 1rem;
+    }
+
+    .login-logo {
+        max-width: 220px;
+        margin-top: 1rem;
+    }
+}
