@@ -4,55 +4,56 @@
 
 @section('content')
 
-<section class="login-section">
+<section class="py-3 bg-white">
     <div class="container">
-        <div class="row min-vh-login align-items-center">
+        <div class="row align-items-center min-vh-login">
 
             {{-- Kiri: Form --}}
-            <div class="col-lg-6 login-form-col">
+            <div class="col-lg-6 pe-lg-5">
 
-                <h1 class="login-title">Selamat Datang</h1>
-                <p class="login-subtitle">Masuk untuk melanjutkan</p>
+                <h1 class="fw-black mb-1" style="font-size:2rem; color:var(--sp-teal)">
+                    Selamat Datang
+                </h1>
+                <p class="fw-bold text-dark mb-3">Masuk untuk melanjutkan</p>
 
                 @if(session('error'))
                     <div class="alert alert-danger rounded-3">{{ session('error') }}</div>
                 @endif
 
-                <form action="{{ route('login') }}" method="POST" novalidate class="mt-4">
+                <form action="{{ route('login') }}" method="POST" novalidate>
                     @csrf
 
-                    <div class="mb-4">
-                        <label class="login-label" for="email">Email</label>
-                        <input type="email"
-                               id="email"
-                               name="email"
-                               class="form-control login-input @error('email') is-invalid @enderror"
+                    <div class="mb-3">
+                        <label class="fw-bold d-block mb-1" style="font-size:0.9rem">Email</label>
+                        <input type="email" name="email"
+                               class="form-control rounded-3 @error('email') is-invalid @enderror"
                                placeholder="Masukkan email Anda"
                                value="{{ old('email') }}"
-                               autofocus>
-                        @error('email')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                               autofocus
+                               style="border-color: var(--sp-teal); font-size:0.9rem; padding:0.45rem 0.85rem">
+                        @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
 
-                    <div class="mb-2">
-                        <label class="login-label" for="password">Password</label>
-                        <input type="password"
-                               id="password"
-                               name="password"
-                               class="form-control login-input @error('password') is-invalid @enderror"
-                               placeholder="Masukkan password Anda">
-                        @error('password')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="mb-0">
+                        <label class="fw-bold d-block mb-1" style="font-size:0.9rem">Password</label>
+                        <input type="password" name="password"
+                               class="form-control rounded-3 @error('password') is-invalid @enderror"
+                               placeholder="Masukkan password Anda"
+                               style="border-color: var(--sp-teal); font-size:0.9rem; padding:0.45rem 0.85rem">
+                        @error('password')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
 
                     <div class="text-end mb-4">
-                        <a href="#" class="login-forgot">Lupa Password?</a>
+                        <a href="#" style="font-size:0.88rem; color:var(--sp-teal); text-decoration:none">
+                            Lupa Password?
+                        </a>
                     </div>
 
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-login-submit">Masuk</button>
+                        <button type="submit" class="btn fw-bold py-2 rounded-3 text-white"
+                                style="background-color:var(--sp-green-dark); font-size:0.97rem">
+                            Masuk
+                        </button>
                     </div>
 
                 </form>
@@ -60,10 +61,10 @@
             </div>
 
             {{-- Kanan: Logo --}}
-            <div class="col-lg-6 text-center login-logo-col">
+            <div class="col-lg-6 text-center mt-5 mt-lg-0">
                 <img src="{{ asset('gambar/logo_bc.png') }}"
                      alt="SambungPangan"
-                     class="login-logo img-fluid">
+                     class="img-fluid" style="max-width:600px">
             </div>
 
         </div>

@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id('id_log');
             $table->foreignId('id_user')->constrained('users', 'id_user')->cascadeOnDelete();
             $table->string('aksi');
+            $table->timestamp('waktu')->nullable();
             $table->text('keterangan')->nullable();
             $table->timestamps();
 

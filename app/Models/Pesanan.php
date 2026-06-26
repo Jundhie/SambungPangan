@@ -12,7 +12,6 @@ class Pesanan extends Model
     use SoftDeletes;
 
     protected $table = 'pesanan';
-
     protected $primaryKey = 'id_pesanan';
 
     protected $fillable = [
@@ -39,10 +38,5 @@ class Pesanan extends Model
     public function jadwalPickup(): HasOne
     {
         return $this->hasOne(JadwalPickup::class, 'id_pesanan', 'id_pesanan');
-    }
-
-    public function transaksi(): HasOne
-    {
-        return $this->hasOne(Transaksi::class, 'id_pesanan', 'id_pesanan');
     }
 }

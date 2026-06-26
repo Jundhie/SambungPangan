@@ -13,15 +13,17 @@ return new class extends Migration
             $table->foreignId('id_mitra')->constrained('mitra_kuliner', 'id_mitra')->cascadeOnDelete();
             $table->foreignId('id_kategori')->constrained('kategori_limbah', 'id_kategori')->restrictOnDelete();
             $table->decimal('berat_barang', 10, 2);
-            $table->dateTime('waktu_mulai');
-            $table->dateTime('waktu_berakhir');
+            $table->dateTime('waktu_tersedia'); // Ganti dari waktu_mulai & berakhir
+            $table->enum('status_listing', ['tersedia', 'dipesan', 'kadaluarsa'])->default('tersedia');
             $table->text('deskripsi')->nullable();
             $table->decimal('harga', 12, 2)->default(0);
             $table->timestamps();
             $table->softDeletes();
 
-            $table->index(['id_mitra', 'waktu_mulai']);
+            // Index disesuaikan dengan kolom baru
+            $table->index(['id_mitra', 'waktu_tersedia']);
             $table->index('id_kategori');
+            $table->index('status_listing');
         });
     }
 
